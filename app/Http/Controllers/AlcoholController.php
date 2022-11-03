@@ -11,6 +11,6 @@ class AlcoholController extends Controller
     public function index(Alcohol $alcohol)
     {
         //dd($alcohol);
-        return $alcohol->get();
+        return view('alcohols/index')->with(['alcohols' => $alcohol->getPaginateByLimit()]);
     }
 }

@@ -14,8 +14,4 @@ use App\Http\Controllers\AlcoholController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/alcohols', [AlcoholController::class, 'index']);
+Route::get('/', [AlcoholController::class, 'index']);
