@@ -11,13 +11,16 @@
         <div class='alcohols'>
             @foreach ($alcohols as $alcohol)
                 <div class='alcohol'>
-                    <h2 class='title'>{{ $alcohol->title }}</h2>
-                    <p class='body'>{{ $alcohol->body }}</p>
+                    <h2 class='title'>{{ $alcohol->name }}</h2>
+                    <p class='body'>{{ $alcohol->comment }}</p>
                 </div>
             @endforeach
         </div>
         <div class='paginate'>
             {{ $alcohols->links() }}
+        </div>
+        <div class='create'>
+            <a href='/alcohols/create'>create</a>
         </div>
     </body>
 </html>
