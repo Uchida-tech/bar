@@ -10,16 +10,18 @@
             @csrf
             <div class="name">
                 <h2>お酒の名称</h2>
-                <input type="text" name="alcohol[name]"/>
+                <input type="text" name="alcohol[name]" value="{{ old('alcohol.name') }}"/>
+                <p class="title__error" style="color:red">{{ $errors->first('alcohol.name') }}</p>
             </div>
             <div class="body">
                 <h2>オススメ理由</h2>
-                <textarea name="alcohol[comment]"></textarea>
+                <textarea name="alcohol[comment]">{{ old('alcohol.comment') }}</textarea>
+                <p class="title__error" style="color:red">{{ $errors->first('alcohol.comment') }}</p>
             </div>
-            <input type="submit" value="store"/>
+            <input type="submit" value="保存"/>
         </form>
-        <div class="footer">
-            <a href="/">戻る</a>
+        <div class="back">
+            [<a href="/">back</a>]
         </div>
     </body>
 </html>

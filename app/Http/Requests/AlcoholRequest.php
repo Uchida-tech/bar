@@ -9,8 +9,8 @@ class AlcoholRequest extends FormRequest
     public function rules()
     {
         return [
-            'alcohol.title' => 'required|string|max:100',
-            'alcohol.body' => 'required|string|max:4000',
+            'alcohol.name' => 'required|string|max:100',
+            'alcohol.comment' => 'required|string|max:4000',
         ];
     }
 }

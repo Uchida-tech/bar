@@ -16,3 +16,4 @@ use App\Http\Controllers\AlcoholController;
 
 Route::get('/', [AlcoholController::class, 'index']);
 Route::get('/alcohols/create', [AlcoholController::class, 'create']);
+Route::post('/alcohols', [AlcoholController::class, 'store']);
