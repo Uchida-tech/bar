@@ -11,8 +11,13 @@
         <div class='alcohols'>
             @foreach ($alcohols as $alcohol)
                 <div class='alcohol'>
-                    <h2 class='title'>{{ $alcohol->name }}</h2>
+                    <a href="/alcohols/{{ $alcohol->id }}">{{ $alcohol->name }}</a>
                     <p class='body'>{{ $alcohol->comment }}</p>
+                    <form action="/alcohols/{{ $alcohol->id }}" id="form_{{ $alcohol->id }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" onclick="deleteAlcohol({{ $alcohol->id }})">delete</button> 
+                    </form>
                 </div>
             @endforeach
         </div>
@@ -23,4 +28,13 @@
             <a href='/alcohols/create'>create</a>
         </div>
     </body>
+    <script>
+        function deleteAlcohol(id) {
+            'use strict'
+    
+            if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                document.getElementById(`form_${id}`).submit();
+            }
+        }
+    </script>
 </html>
