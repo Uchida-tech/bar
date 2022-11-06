@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Models\Alcohol;
-
-use App\Http\Requests\PostRequest;
+use App\Http\Requests\AlcoholRequest;
 
 class AlcoholController extends Controller
 {
@@ -21,7 +18,7 @@ class AlcoholController extends Controller
         return view('alcohols/create');
     }
     
-    public function store(Alcohol $alcohol, PostRequest $request) // 引数をRequestからPostRequestにする
+    public function store(AlcoholRequest $request, Alcohol $alcohol)
     {
         $input = $request['alcohol'];
         $alcohol->fill($input)->save();
