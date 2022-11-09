@@ -14,10 +14,14 @@ use App\Http\Controllers\AlcoholController;
 |
 */
 
-Route::get('/', [AlcoholController::class, 'index']);
-Route::post('/alcohols', [AlcoholController::class, 'store']);
-Route::get('/alcohols/create', [AlcoholController::class, 'create']);
-Route::get('/alcohols/{alcohol}', [AlcoholController::class ,'show']);
-Route::put('/alcohols/{alcohol}', [AlcoholController::class, 'update']);
-Route::delete('/alcohols/{alcohol}', [AlcoholController::class,'delete']);
-Route::get('/alcohols/{alcohol}/edit', [AlcoholController::class, 'edit']);
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
+Route::get('/', [AlcoholController::class, 'index'])->name('index');

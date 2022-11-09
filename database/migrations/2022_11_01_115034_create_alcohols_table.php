@@ -15,11 +15,11 @@ class CreateAlcoholsTable extends Migration
     {
         Schema::create('alcohols', function (Blueprint $table) {
             $table->id();
-            //$table->bigInteger('category_id')いったんコメントアウト
+            $table->bigInteger('category_id');
             $table->string('name', 50);
             $table->text('comment');
-            //$table->string('rate', 10);
-            //$table->string('img_path', 255);
+            $table->string('rate', 10);
+            $table->string('img_path', 255);
             $table->timestamps();
             $table->softDeletes();
         });

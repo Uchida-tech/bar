@@ -12,7 +12,7 @@
             {{ $alcohol->name }}
         </h1>
         <div class="content">
-            <div class="content__alcohol">
+            <div class="content_alcohol">
                 <h3>本文</h3>
                 <p>{{ $alcohol->comment}}</p>    
             </div>
