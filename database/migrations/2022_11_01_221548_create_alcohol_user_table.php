@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('alcohol_user', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('alcohol_id')->constrained('alcohols');
-            $table->primary(['user_id', 'alcohol_id']);  
+            $table->primary(['user_id', 'alcohol_id']);
             });
     }
 

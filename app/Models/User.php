@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    //お酒の投稿に対するリレーション
+    public function alcohols(){
+        //利用者は多数のお酒の投稿を保持
+        return $this->belongsToMany(Alcohol::class);
+    }
 }

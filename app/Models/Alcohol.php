@@ -27,4 +27,10 @@ class Alcohol extends Model
         // updated_atで降順に並べたあと、limitで件数制限をかける
         return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
+    
+    //userに対するリレーション
+    public function users(){
+        //一つの投稿に対し、多数の利用者がいいねする
+        return $this->belongsToMany(User::class);
+    }
 }
