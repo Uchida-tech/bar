@@ -24,7 +24,7 @@
             <a href='/alcohols/create'>create</a>
         </div>
         <!--認証済みユーザーの表示-->
-        <h2>{{ Auth::user()->name }}</h2> 
+        <h2>{{ Auth::user()->name }}</h2>
     </body>
     <script>
         function deleteAlcohol(id) {
