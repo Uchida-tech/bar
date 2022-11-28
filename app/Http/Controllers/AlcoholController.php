@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Alcohol;
 use App\Http\Requests\AlcoholRequest;
+use App\Models\Category;
 
 class AlcoholController extends Controller
 {
@@ -18,9 +19,9 @@ class AlcoholController extends Controller
         return view('alcohols/show')->with(['alcohol' => $alcohol]);
     }
     
-    public function create()
+    public function create(Category $category)
     {
-        return view('alcohols/create');
+        return view('alcohols/create')->with(['categories' => $category->get()]);
     }
     
     public function store(AlcoholRequest $request, Alcohol $alcohol)

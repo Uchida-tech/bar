@@ -1,7 +1,4 @@
 <x-app-layout>
-    <x-slot name="header">
-        　HOME
-    </x-slot>
    <body>
         <h1>Blog Name</h1>
         <div class='alcohols'>
@@ -9,6 +6,7 @@
                 <div class='alcohol'>
                     <a href="/alcohols/{{ $alcohol->id }}">{{ $alcohol->name }}</a>
                     <p class='body'>{{ $alcohol->comment }}</p>
+                    <a href="">{{ $alcohol->category->name }}</a>
                     <form action="/alcohols/{{ $alcohol->id }}" id="form_{{ $alcohol->id }}" method="post">
                         @csrf
                         @method('DELETE')

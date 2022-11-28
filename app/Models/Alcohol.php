@@ -14,6 +14,9 @@ class Alcohol extends Model
     protected $fillable = [
         'name',
         'comment',
+        'category_id',
+        'rate',
+        'img_path',
     ];
     
     public function getByLimit(int $limit_count = 10)
@@ -25,7 +28,13 @@ class Alcohol extends Model
     public function getPaginateByLimit(int $limit_count = 10)
     {
         // updated_atで降順に並べたあと、limitで件数制限をかける
-        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this::with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
+    
+    //categoryに対するリレーション
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
     
     //userに対するリレーション

@@ -24,10 +24,12 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/', [AlcoholController::class, 'index'])->name('index');
-Route::post('/alcohols', [AlcoholController::class, 'store']);
-Route::get('/alcohols/create', [AlcoholController::class, 'create']);
-Route::get('/alcohols/{alcohol}', [AlcoholController::class ,'show']);
-Route::put('/alcohols/{alcohol}', [AlcoholController::class, 'update']);
-Route::delete('/alcohols/{alcohol}', [AlcoholController::class,'delete']);
-Route::get('/alcohols/{alcohol}/edit', [AlcoholController::class, 'edit']);
+Route::controller(AlcoholController::class)->middleware(['auth'])->group(function(){
+    Route::get('/', 'index')->name('index');
+    Route::post('/alcohols', 'store')->name('store');
+    Route::get('/alcohols/create', 'create')->name('create');
+    Route::get('/alcohols/{alcohol}', 'show')->name('show');
+    Route::put('/alcohols/{alcohol}', 'update')->name('update');
+    Route::delete('/alcohols/{alcohol}', 'delete')->name('delete');
+    Route::get('/alcohols/{alcohol}/edit', 'edit')->name('edit');
+});
