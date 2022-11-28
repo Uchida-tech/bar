@@ -19,7 +19,7 @@ class CreateAlcoholsTable extends Migration
             $table->string('name', 50);
             $table->text('comment');
             $table->integer('rate');
-            $table->string('img_path')->nullable();
+            // $table->string('img_path')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

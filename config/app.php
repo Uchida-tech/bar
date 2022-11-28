@@ -194,6 +194,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        
+        // Cloudinaryの設定
+        JD\Cloudder\CloudderServiceProvider::class,
 
     ],
 
@@ -210,6 +213,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        // Cloudinaryの設定
+        JD\Cloudder\CloudderServiceProvider::class,
     ])->toArray(),
 
 ];
